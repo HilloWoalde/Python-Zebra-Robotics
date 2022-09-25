@@ -1,0 +1,6 @@
+username = input("What is your username?")
+un = username.isalpha()
+print(un)
+password = input("What is your password?")
+pw = password.isdigit()
+print(pw)
