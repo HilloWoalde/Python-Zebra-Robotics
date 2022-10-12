@@ -1,0 +1,8 @@
+message = input("Please Input Your Message. If Urgent, add 911. ")
+#print(message)
+messageV2 = message.strip()
+#print(messageV2)
+length = len(messageV2)
+print("The length is " + str(length))
+urgent = messageV2.find(str(911))
+print(urgent)
