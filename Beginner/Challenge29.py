@@ -1,16 +1,14 @@
 import time
 bottles = 99
-while True:
-    if(bottles > 1):
+for i in range(bottles,0,-1):
+    if(i > 1):
         #time.sleep(1)
-        print(str(bottles) + " bottles of milk on the wall, " + str(bottles) + " bottles of milk.")
+        print(str(i) + " bottles of milk on the wall, " + str(i) + " bottles of milk.")
         #time.sleep(2)
-        
-        bottles -= 1
-        print("Take one down and pass it along, " + str(bottles) + " bottles of milk on the wall.")
+        print("Take one down and pass it along, " + str(i) + " bottles of milk on the wall.")
         #time.sleep(1)
     else:
-        bottles = 99
+        i = 99
         #time.sleep(1)
         print("1 bottle of milk on the wall, 1 bottle of milk.")
         #time.sleep(1)
