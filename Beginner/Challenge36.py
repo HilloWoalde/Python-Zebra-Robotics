@@ -1,17 +1,20 @@
 import random
 words = ['see','users','user','documents','git','hub','python','beginner','challenge','zebra']
-word = random.choice(words)
+#word = random.choice(words)
+word = "elephant"
 worlis = list(word)
 index = 0
 guess = ""
 guelis = []
 badlets = []
 trilef = 5
+da = []
 for i in worlis:
-    guelis += "_"
+    guelis += " "
+    da += "_"
 print("The length of the word is " + str(len(worlis)))
-while trilef > 0 and "_" in guelis:
-    if ("_" in guelis):
+while trilef > 0 and " " in guelis:
+    if (" " in guelis):
         guess = input("What is your guess (letter(lowercase))")
         if (guess in worlis):
             while (guess in worlis):
@@ -33,10 +36,11 @@ while trilef > 0 and "_" in guelis:
                 badlets.append(guess)
                 trilef -= 1
         print(guelis)
+        print(da)    
         print("You're incorrect guesses are: " + str(badlets))
         print("You have " + str(trilef) + " tries left")
         
-if ("_" in guelis):
+if (" " in guelis):
     #guess = input("What do you think the word is?")
     #if (guess == word):
         #print("Congrats! You got the word right!")
