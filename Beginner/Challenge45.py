@@ -1,7 +1,6 @@
 def showstars(rows):
-    lis = []
-    for i in range(0, rows):
-        lis.append("*")
-        print(''.join(lis))
+    stri = "*"
+    for i in range(1, rows+1):
+        print(stri*i)
 while True:
     showstars(int(input("How many rows?")))
