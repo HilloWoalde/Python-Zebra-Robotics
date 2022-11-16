@@ -1,6 +1,7 @@
+import math
 def sped_test (speed):
     points = 0
-    points += round((speed-70)/5)
+    points += math.floor((speed-70)/5)
     if points < 1:
         return "Ok"
     elif points < 13:
