@@ -1,5 +1,6 @@
-Hello
-I
-Greeting
-From
-File
+is
+sentence
+will
+split
+to
+files.

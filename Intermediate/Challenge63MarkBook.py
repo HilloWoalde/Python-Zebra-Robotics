@@ -1,16 +1,38 @@
+dates=[]
+class Date:
+    def __init__(self, day, month, year):
+        self.day = day
+        self.month = month
+        self.year = year
+
+    def PrintDOB(self):
+        print(self.month+" "+self.day+", "+self.year)
 class Student:
-    def __init__(self, firstName, lastName, name, mark = 0): 
+    def __init__(self, firstName, lastName, name, mark = 75, yob="2010", mob="May", dob="5th", studentNum = "0000", grade="B", classNum="0", attendance="0", totClasses="0"):  #yob=yr of brith, mob=mth of birth, dob=day of birth
         self.firstName = firstName
         self.lastName = lastName
         self.mark = int(mark)
-        self.name= firstName + " " + lastName
+        self.name = firstName + " " + lastName
+        self.dob = Date(dob, mob, yob)
+        dates.append(self.dob)
+        self.studentNum=studentNum
+        self.grade=grade
+        self.classNum=classNum
         
     def setMark(self, mark):
         self.mark = int(mark)
         
     def PrintStudentInformation(self):
-        print("Name:", self.firstName + " " + self.lastName)
-        print("Mark:", self.mark)
+        print("Name:\n", self.name)
+        print("Mark:\n", self.mark)
+        print("DOB:"    )
+        dates[0].PrintDOB()
+        print("Student Number:\n", self.studentNum)
+        print("Grade:\n", self.Grade)
+        print("classNum:\n", self.classNum)
+        a=str(self.attendance+" classes attended out of "self.totClasses+" total classes")
+        print("Attendance\n", a)
+        
 
     def PrintStudentName(self):
         print(self.name)
