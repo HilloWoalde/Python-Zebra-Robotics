@@ -30,7 +30,7 @@ while True:
     
 file.close()
 while True:
-    menuoption = input("Select one option using numbers \n 1.  Find a Vehicle (via id)\n 2.  Add a vehicle \n 3.  I sold a Vehicle! \n  4.  See all vehicle ID's \n 5.  Update a vehicle's Mileage \n 6.  Save and Exit \n 7.  Exit without saving\n P.S.  Please note the ID updates when the program opens, and then is static. The ID only references The main car class and name of vehicle, no sub class variables such a truck's bed, they will have IDs based off of their car values")
+    menuoption = input("\n \n \n Select one option using numbers \n 1.  Find a Vehicle (via id)\n 2.  Add a vehicle \n 3.  I sold a Vehicle! \n  4.  See all vehicle ID's \n 5.  Update a vehicle's Mileage \n 6.  Save and Exit \n 7.  Exit without saving\n P.S.  Please note the ID updates when the program opens, and then is static. The ID only references The main car class and name of vehicle, no sub class variables such a truck's bed, they will have IDs based off of their car values \n Input your choice here")
     if menuoption == "1":
         vehicleToFind = input("What is the ID of the vehicle?")
         for i in allvehicles:
@@ -44,8 +44,9 @@ while True:
         elif vehicle == "Motorcycle":
             allvehicles.append(Motorcycle("Motorcycle", input("What is the vehicle's make? (Input a word, like Nissan)"), input("What is the vehicle's Model? (Input a word, like Rogue)"), input("What is the vehicle's release year? (Input a number, like 2016)"), input("What is the vehicle's price? (Input a number, like 24125)"), input("What is the vehicle's used value? (Type TRUE for used, FALSE for unused)"), input("What is the vehicle's mileage? (Input a number, like 94500)"),"", input("What is the vehicle's Availability? (Type True for available, FALSE for un-available)"),"", input("What is the vehicle's Type? (Input a word, like Standard)")))
         elif vehicle == "Truck":
-            allvehicles.append(Truck("Truck", input("What is the vehicle's make? (Input a word, like Nissan)"), input("What is the vehicle's Model? (Input a word, like Rogue)"), input("What is the vehicle's release year? (Input a number, like 2016)"), input("What is the vehicle's price? (Input a number, like 24125)"), input("What is the vehicle's used value? (Type TRUE for used, FALSE for unused)"), input("What is the vehicle's mileage? (Input a number, like 94500)"), input("What is the vehicle's Availability? (Type True for available, FALSE for un-available)"),"", input("What is the vehicle's Type? (Input a word, like Full Size)"), input("What is the vehicle's Bed? (Input a word, like Long)")))
-        print("The vehicle's ID is {}. Please refer to this for modifications.".format(allvehicles[len(allvehicles)-1].printID()))
+            allvehicles.append(Truck("Truck", input("What is the vehicle's make? (Input a word, like Nissan)"), input("What is the vehicle's Model? (Input a word, like Rogue)"), input("What is the vehicle's release year? (Input a number, like 2016)"), input("What is the vehicle's price? (Input a number, like 24125)"), input("What is the vehicle's used value? (Type TRUE for used, FALSE for unused)"), input("What is the vehicle's mileage? (Input a number, like 94500)"), input("What is the vehicle's number of doors? (Input a number, like 4)"), input("What is the vehicle's Availability? (Type True for available, FALSE for un-available)"),"", input("What is the vehicle's Type? (Input a word, like Full Size)"), input("What is the vehicle's Bed? (Input a word, like Long)")))
+        allvehicles[len(allvehicles)-1].createID()
+        print("The vehicle's ID is above. Please refer to this for modifications.")
     if menuoption == "3":
         vehicleToFind = input("What is the ID of the vehicle you sold?")
         for i in allvehicles:

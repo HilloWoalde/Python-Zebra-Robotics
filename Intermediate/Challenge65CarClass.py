@@ -72,6 +72,7 @@ class Car:
     def changeAvailability(self):
         self.Available = input("What is the car's Availability? (Type True for available, False for un-available)")
         print(self.Available)
+        
     
 class Motorcycle(Car):
     def __init__(self, Vehicle, Make, Model, Year, Price, Used, Mileage, Doors, Available, ID, Type):
@@ -79,7 +80,7 @@ class Motorcycle(Car):
         Car.__init__(self, "Motorcycle", Make, Model, Year, Price, Used, Mileage, 0, Available, ID)
     
     def stringify(self):
-        return super().stringify() + (self.type) + ("\n")
+        return super().stringify() + ("Type:" + self.type) + ("\n")
     
 class Truck(Car):
     def __init__(self, Vehicle, Make, Model, Year, Price, Used, Mileage, Doors, Available, ID, Type, Bed):
@@ -87,6 +88,7 @@ class Truck(Car):
         self.bed = Bed
         Car.__init__(self, "Truck", Make, Model, Year, Price, Used, Mileage, Doors, Available, ID)
         
+        
 
     def stringify(self):
-        return super().stringify() + (self.type) + ("\n") + (self.bed) + ("\n")
+        return super().stringify() + ("Type:" + self.type) + ("\n") + ("Bed:" + self.bed) + ("\n")
