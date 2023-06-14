@@ -1,5 +1,6 @@
 class Car:
-    def __init__(self, Make="Cars", Model="Empty", Year="2023", Price="1000", Used="False", Mileage="100", Doors="4", Available="True", ID=""): 
+    def __init__(self, Vehicle, Make, Model, Year, Price, Used, Mileage, Doors, Available, ID=""): 
+        self.Vehicle = Vehicle
         self.Make = Make
         self.Model = Model
         self.Year = Year
@@ -12,6 +13,9 @@ class Car:
         self.createID()
 
     def createID(self):
+        strr=self.Vehicle
+        x=[i for i in strr]
+        o=str(x[0])
         strr=self.Make
         x=[i for i in strr]
         a=str(x[0])
@@ -29,17 +33,13 @@ class Car:
         strr=str(boool)
         x=[i for i in strr]
         f=str(x[0])
-        z=a+b+c+d+e+f
-        #print(a)
-        #print(b)
-        #print(c)
-        #print(d)
-        #print(e)
-        #print(f)
-        #print(z)
+        z=o+a+b+c+d+e+f
         self.ID=z
+
     def stringify(self):
         x=""
+        x += ("Vehicle:" + self.Vehicle)
+        x += ("\n")
         x += ("Make:" + self.Make)
         x += ("\n")
         x += ("Model:" + self.Model)
@@ -58,13 +58,35 @@ class Car:
         x += ("\n")
         x += ("ID:" + self.ID)
         x += ("\n")
-        x += ("\n")
         return(x)
+    
     def printID(self):
         print(self.ID)
+
+
     def changeMileage(self):
         self.Mileage = input("What is the car's mileage? (Input a number, like 94500)")
         print(self.Mileage)
+
+
     def changeAvailability(self):
         self.Available = input("What is the car's Availability? (Type True for available, False for un-available)")
         print(self.Available)
+    
+class Motorcycle(Car):
+    def __init__(self, Vehicle, Make, Model, Year, Price, Used, Mileage, Doors, Available, ID, Type):
+        self.type = Type
+        Car.__init__(self, "Motorcycle", Make, Model, Year, Price, Used, Mileage, 0, Available, ID)
+    
+    def stringify(self):
+        return super().stringify() + (self.type) + ("\n")
+    
+class Truck(Car):
+    def __init__(self, Vehicle, Make, Model, Year, Price, Used, Mileage, Doors, Available, ID, Type, Bed):
+        self.type = Type
+        self.bed = Bed
+        Car.__init__(self, "Truck", Make, Model, Year, Price, Used, Mileage, Doors, Available, ID)
+        
+
+    def stringify(self):
+        return super().stringify() + (self.type) + ("\n") + (self.bed) + ("\n")
