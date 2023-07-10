@@ -41,3 +41,14 @@ Availability:False
 ID:HC1517545F
 Type:Full
 Bed:Long
+Vehicle:Motorcycle
+Make:Nisan
+Model:Rouge
+Year:2017
+Price:24152
+Used:TRUE
+Mileage:95400
+Doors:0
+Availability:True
+ID:MNR1724954T
+Type:Standard

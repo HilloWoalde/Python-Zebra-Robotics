@@ -4,11 +4,11 @@ class Car:
         self.Make = Make
         self.Model = Model
         self.Year = Year
-        self.Price = Price
+        self.__Price = Price
         self.Used = Used
         self.Mileage = Mileage
         self.Doors = Doors
-        self.Available = Available
+        self.__Available = Available
         self.ID = ID
         self.createID()
 
@@ -25,11 +25,11 @@ class Car:
         intt=self.Year
         x=[i for i in intt]
         c=str(x[2]+x[3])
-        intt=self.Price
+        intt=self.getPrice()
         d=str(int(int(intt)/1000))
         intt=self.Mileage
         e=str(int(int(intt)/100))
-        boool=self.Available
+        boool=self.getAvailability()
         strr=str(boool)
         x=[i for i in strr]
         f=str(x[0])
@@ -46,15 +46,15 @@ class Car:
         x += ("\n")
         x += ("Year:" + self.Year)
         x += ("\n")
-        x += ("Price:" + self.Price)
+        x += ("Price:" + self.getPrice())
         x += ("\n")
         x += ("Used:" + self.Used)
         x += ("\n")
         x += ("Mileage:" + self.Mileage)
         x += ("\n")
-        x += ("Doors:" + self.Doors)
+        x += ("Doors:" + str(self.Doors))
         x += ("\n")
-        x += ("Availability:" + self.Available)
+        x += ("Availability:" + str(self.getAvailability()))
         x += ("\n")
         x += ("ID:" + self.ID)
         x += ("\n")
@@ -63,16 +63,25 @@ class Car:
     def printID(self):
         print(self.ID)
 
+    def getAvailability(self):
+        return self.__Available
 
-    def changeMileage(self):
-        self.Mileage = input("What is the car's mileage? (Input a number, like 94500)")
+    def getPrice(self):
+        return self.__Price
+
+    def changeMileage(self, new):
+        self.Mileage = new
         print(self.Mileage)
 
+    def changePrice(self, newPrice):
+        self.__Price = newPrice
+        return self.__Price
 
-    def changeAvailability(self):
-        self.Available = input("What is the car's Availability? (Type True for available, False for un-available)")
-        print(self.Available)
-        
+    def changeAvailability(self, newAvailable):
+        self.__Available = newAvailable
+        return self.__Available
+        #self.Available = new
+        #print(self.Available)
     
 class Motorcycle(Car):
     def __init__(self, Vehicle, Make, Model, Year, Price, Used, Mileage, Doors, Available, ID, Type):

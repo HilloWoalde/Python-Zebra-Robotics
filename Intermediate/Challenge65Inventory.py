@@ -1,13 +1,14 @@
 from Challenge65CarClass import Car, Motorcycle, Truck
 menuoption = ""
 allvehicles=[]
-file = open("64Cars.txt", "r")
+file = open("Intermediate/64Cars.txt")
 lines = file.readlines()
 vehiclesNum = round(len(lines)/8)
 i=0
 while True:
     #print(i)
     #print(len(lines))
+    print(lines[i])
     vehicle = lines[0+(i)].split(":")[1].strip()
     if vehicle == "Car":
         a = (lines[0+(i)].split(":")[1].strip("\n"), lines[1+(i)].split(":")[1].strip("\n"), lines[2+(i)].split(":")[1].strip("\n"), lines[3+(i)].split(":")[1].strip("\n"), lines[4+(i)].split(":")[1].strip("\n"), lines[5+(i)].split(":")[1].strip("\n"), lines[6+(i)].split(":")[1].strip("\n"), lines[7+(i)].split(":")[1].strip("\n"), lines[8+(i)].split(":")[1].strip("\n"), lines[9+(i)].split(":")[1].strip("\n"))
@@ -30,7 +31,7 @@ while True:
     
 file.close()
 while True:
-    menuoption = input("\n \n \n Select one option using numbers \n 1.  Find a Vehicle (via id)\n 2.  Add a vehicle \n 3.  I sold a Vehicle! \n  4.  See all vehicle ID's \n 5.  Update a vehicle's Mileage \n 6.  Save and Exit \n 7.  Exit without saving\n P.S.  Please note the ID updates when the program opens, and then is static. The ID only references The main car class and name of vehicle, no sub class variables such a truck's bed, they will have IDs based off of their car values \n Input your choice here")
+    menuoption = input("\n \n \n Select one option using numbers \n 1.  Find a Vehicle (via id)\n 2.  Add a vehicle \n 3.  Update a vehicle's Availability \n 4.  See all vehicle ID's \n 5.  Update a vehicle's Mileage \n 6.  Update a vehicle's Price \n 7.  Save and Exit \n 8.  Exit without saving\n P.S.  Please note the ID updates when the program opens, and then is static. The ID only references The main car class and name of vehicle, no sub class variables such a truck's bed, they will have IDs based off of their car values \n Input your choice here")
     if menuoption == "1":
         vehicleToFind = input("What is the ID of the vehicle?")
         for i in allvehicles:
@@ -46,12 +47,13 @@ while True:
         elif vehicle == "Truck":
             allvehicles.append(Truck("Truck", input("What is the vehicle's make? (Input a word, like Nissan)"), input("What is the vehicle's Model? (Input a word, like Rogue)"), input("What is the vehicle's release year? (Input a number, like 2016)"), input("What is the vehicle's price? (Input a number, like 24125)"), input("What is the vehicle's used value? (Type TRUE for used, FALSE for unused)"), input("What is the vehicle's mileage? (Input a number, like 94500)"), input("What is the vehicle's number of doors? (Input a number, like 4)"), input("What is the vehicle's Availability? (Type True for available, FALSE for un-available)"),"", input("What is the vehicle's Type? (Input a word, like Full Size)"), input("What is the vehicle's Bed? (Input a word, like Long)")))
         allvehicles[len(allvehicles)-1].createID()
+        allvehicles[len(allvehicles)-1].printID()
         print("The vehicle's ID is above. Please refer to this for modifications.")
     if menuoption == "3":
-        vehicleToFind = input("What is the ID of the vehicle you sold?")
+        vehicleToFind = input("What is the ID of the vehicle you want to change the availability of?")
         for i in allvehicles:
             if i.ID == vehicleToFind:
-                i.Available = False
+                i.changeAvailability(input("What is the car's Availability? (Type True for available, False for un-available)"))
     if menuoption == "4":
         for i in allvehicles:
             i.printID()
@@ -59,12 +61,17 @@ while True:
         vehicleToFind = input("What is the ID of the vehicle you would like to update?")
         for i in allvehicles:
             if i.ID == vehicleToFind:
-                i.changeMileage()
+                i.changeMileage(input("What is the car's mileage? (Input a number, like 94500)"))
     if menuoption == "6":
+        vehicleToFind = input("What is the ID of the vehicle you want to change the price of?")
+        for i in allvehicles:
+            if i.ID == vehicleToFind:
+                i.changePrice(input("What is the vehicle's price? (Input a number, like 24125)"))
+    if menuoption == "7":
         file=open("64Cars.txt", "w")
         for i in allvehicles:
             file.write(i.stringify())
         file.close()
         break
-    if menuoption == "7":
+    if menuoption == "8":
         break
