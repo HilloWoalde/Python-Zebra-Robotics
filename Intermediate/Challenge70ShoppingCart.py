@@ -121,7 +121,7 @@ items.append(item("Galaxy S23 Ultra", 5.89, "1 Phone"))
 
 items.append(item("Microsoft 365 Personal Subscription", 79.00, "1 Person, 1 TB"))
 
-items.append(item("Glass Dry Erase Whiteboard", 2030.00, "6 * 4'"))
+items.append(item("Whiteboard", 2030.00, "6 * 4'"))
 
 items.append(item("3D Printer", 132500.00, "1 Printer"))
 
