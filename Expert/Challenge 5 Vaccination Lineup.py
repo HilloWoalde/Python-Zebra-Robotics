@@ -1,8 +1,7 @@
+import time
 class Vaccine:
-    people = []
     def __init__(self, people=[]):
-        for person in people:
-            self.people.append(person)
+        self.people = people
     def enqueue(self, person):
         self.people.append(person)
         print(self.people)
@@ -29,17 +28,34 @@ class Vaccine:
     def reorder(self):
         people = []
         place = 0
+        #print(self.people)
         for i in self.people:
             if people == []:
                 people.append(i)
             else:
-                #print(i[(list(i)[0])])
-                #print(people[place][(list(people[place])[0])])
-                if i[(list(i)[0])][0] > people[place][(list(people[place])[0])][0]:
-                    place += 1
-                else:
-                    people.insert(place, i)
-            place = 0
+                while True:
+                    #people[place][(list(people[place])[0])]
+                    #time.sleep(2.5)
+                    #print(people)
+                    #print(people[place][(list(people[place])[0])][0])
+                    #print(str(people[place][(list(people[place])[0])][0]) in str(people))
+                    if len(people) > place:
+                        #print(i[(list(i)[0])])
+                        #print(people[place][(list(people[place])[0])])
+                        if i[(list(i)[0])][0] > people[place][(list(people[place])[0])][0]:
+                            place += 1
+                        else:
+                            #print(people)
+                            people.insert(place, i)
+                            #print(people)
+                            place = 0
+                            break
+                    else:
+                        #print(people)
+                        people.insert(place, i)
+                        #print(people)
+                        place = 0
+                        break
         self.people = people
 #Henry = {"Henry":[14.5,20.5]}
 #Henry["Henry"[1]] = Vaccination Time
