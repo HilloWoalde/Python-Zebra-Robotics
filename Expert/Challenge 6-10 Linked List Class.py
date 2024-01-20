@@ -295,7 +295,7 @@ print("3: " + linked_list[2])
 print("8: " + linked_list[7]) 
 
 for i in linked_list:
-    print(i)    print(i)
+    print(i)
 =======
 linked_list.reverseSort()
 linked_list.printLL()
