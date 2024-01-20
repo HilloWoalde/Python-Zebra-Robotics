@@ -277,6 +277,7 @@ linked_list.insertAtIndex(4, 3)
 linked_list.printLL()
 linked_list.sort()
 linked_list.printLL()
+<<<<<<< HEAD
 
 linked_list.insertAtEnd(8)
 linked_list.printLL()
@@ -294,4 +295,8 @@ print("3: " + linked_list[2])
 print("8: " + linked_list[7]) 
 
 for i in linked_list:
-    print(i)
+    print(i)    print(i)
+=======
+linked_list.reverseSort()
+linked_list.printLL()
+>>>>>>> f031c8a8d0ebee919e73fe8d91fe20a0c2041c5c
