@@ -20,6 +20,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.index = -1
     def insertAtBegin(self, data):
         new_node = Node(data)
         if self.head is None:
@@ -185,7 +186,7 @@ class LinkedList:
             current_node = current_node.next
         self.head = newLL.head
     
-    def reverse_sort(self):
+    def og_reverse_sort(self):
         current_node = self.head
         newLL = LinkedList()
         for i in range (0, self.sizeOfLL()):
@@ -193,7 +194,41 @@ class LinkedList:
             current_node = current_node.next
         self.head = newLL.head
 
+    def reverse_sort(self):
+        current_node=self.head
+        newLL=LinkedList()
+        for i in range(0, self.sizeOfLL()):
+            newLL.insertAtBegin(current_node)
+            current_node = current_node.next
+        self.head=newLL.head
 
+    def iiao(self, data):
+        self.insertInAscendingOrder(data)
+        self.sort()
+    
+    def iido(self, data):
+        self.insertInDecendingOrder(data)
+        #self.og_reverse_sort()
+
+    def __getitem__(self, index):
+        current_node=self.head
+        for i in range(0, index):
+            current_node=current_node.next
+            if current_node==None:
+                break
+        return(str(current_node))
+        pass
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.index+=1
+        if self.index >= self.sizeOfLL():
+            self.index= -1
+            raise StopIteration
+        else:
+            return self.__getitem__(self.index)
 
 llist = LinkedList()
 llist.insertAtEnd('a')
@@ -217,28 +252,46 @@ llist.printLL()
 print("\nSize of linked list :", end=" ")
 print(llist.sizeOfLL())
 linked_list = LinkedList()
-linked_list.insertInAscendingOrder(1)
-linked_list.insertInAscendingOrder(3)
-linked_list.insertInAscendingOrder(9)
-linked_list.insertInAscendingOrder(14) 
+linked_list.iiao(1)
+linked_list.iiao(3)
+linked_list.iiao(9)
+linked_list.iiao(14) 
 
 
 linked_list.printLL()  # Output: 1 -> 3 -> 9 -> 14 -> None
 
-linked_list.insertInAscendingOrder(4)
+linked_list.iiao(4)
 linked_list.printLL()  # Output: 1 -> 3 -> 4 -> 9 -> 14 -> None
 
 linked_list.removeLargest()
 linked_list.printLL()
 
-linked_list.insertInAscendingOrder(5)
+linked_list.iiao(5)
 linked_list.printLL()
 
 linked_list.insertAtBegin(8)
 linked_list.printLL()
-linked_list.insertInAscendingOrder(7)
+linked_list.iiao(7)
 linked_list.printLL()
 linked_list.insertAtIndex(4, 3)
 linked_list.printLL()
 linked_list.sort()
 linked_list.printLL()
+
+linked_list.insertAtEnd(8)
+linked_list.printLL()
+linked_list.iido(7)
+linked_list.printLL()
+linked_list.insertAtIndex(3, 4)
+linked_list.printLL()
+linked_list.reverse_sort()
+linked_list.printLL()
+
+print("4: " + linked_list[3])
+print("7: " + linked_list[6])
+print("1: " + linked_list[0])
+print("3: " + linked_list[2])
+print("8: " + linked_list[7]) 
+
+for i in linked_list:
+    print(i)
