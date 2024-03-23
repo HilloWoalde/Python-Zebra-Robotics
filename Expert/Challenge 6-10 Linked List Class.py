@@ -228,75 +228,30 @@ class LinkedList:
             self.index= -1
             raise StopIteration
         else:
-            return self.__getitem__(self.index)
+            return self.__getitem__(self.index)  
 
-llist = LinkedList()
-llist.insertAtEnd('a')
-llist.insertAtEnd('b')
-llist.insertAtBegin('c')
-llist.insertAtEnd('d')
-llist.insertAtIndex('g', 2)
-print("Node Data")
-llist.printLL()
-print("\nRemove First Node")
-llist.remove_first_node()
-print("Remove Last Node")
-llist.remove_last_node()
-print("Remove Node at Index 1")
-llist.remove_at_index(1)
-print("\nLinked list after removing a node:")
-llist.printLL()
-print("\nUpdate node Value")
-llist.updateNode('z', 0)
-llist.printLL()
-print("\nSize of linked list :", end=" ")
-print(llist.sizeOfLL())
+    def reverse_recursively(self, node):
+        if node is None or node.next is None:
+            return node
+
+        new_head = self.reverse_recursively(node.next)
+
+        node.next.next = node
+        node.next = None
+
+        return new_head
+
+    def reverse(self):
+        self.head = self.reverse_recursively(self.head)
+
 linked_list = LinkedList()
 linked_list.iiao(1)
 linked_list.iiao(3)
+linked_list.iiao(14)
 linked_list.iiao(9)
-linked_list.iiao(14) 
-
-
-linked_list.printLL()  # Output: 1 -> 3 -> 9 -> 14 -> None
-
-linked_list.iiao(4)
-linked_list.printLL()  # Output: 1 -> 3 -> 4 -> 9 -> 14 -> None
-
-linked_list.removeLargest()
 linked_list.printLL()
 
-linked_list.iiao(5)
+linked_list.reverse()
 linked_list.printLL()
-
-linked_list.insertAtBegin(8)
+linked_list.reverse()
 linked_list.printLL()
-linked_list.iiao(7)
-linked_list.printLL()
-linked_list.insertAtIndex(4, 3)
-linked_list.printLL()
-linked_list.sort()
-linked_list.printLL()
-<<<<<<< HEAD
-
-linked_list.insertAtEnd(8)
-linked_list.printLL()
-linked_list.iido(7)
-linked_list.printLL()
-linked_list.insertAtIndex(3, 4)
-linked_list.printLL()
-linked_list.reverse_sort()
-linked_list.printLL()
-
-print("4: " + linked_list[3])
-print("7: " + linked_list[6])
-print("1: " + linked_list[0])
-print("3: " + linked_list[2])
-print("8: " + linked_list[7]) 
-
-for i in linked_list:
-    print(i)
-=======
-linked_list.reverseSort()
-linked_list.printLL()
->>>>>>> f031c8a8d0ebee919e73fe8d91fe20a0c2041c5c
